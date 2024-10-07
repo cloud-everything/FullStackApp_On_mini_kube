@@ -1,4 +1,4 @@
 export const environment = {
-    getAllDiningData: 'https://diningservices.vishalgandla.online/backend'
+    getAllDiningData: 'http://127.0.0.1:8080/backend'
   };
   

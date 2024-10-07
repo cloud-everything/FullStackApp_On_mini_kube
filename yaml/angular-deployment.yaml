@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: angular-app-nginx
-        image: diningregistry.azurecr.io/angular-dining-services
+        image: angular-dining-services
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         resources:

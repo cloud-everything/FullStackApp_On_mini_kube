@@ -16,10 +16,19 @@ spec:
     spec:
       containers:
       - name: springboot-container
-        image: diningregistry.azurecr.io/dining_services  # Replace with your Spring Boot Docker image
+        image: dining_services:latest  # Replace with your Spring Boot Docker image
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080  # The port your Spring Boot app listens to
         env:
+        - name: CORS_ALLOWED_ORIGINS
+          value: "http://127.0.0.1"
+        - name: CORS_ALLOWED_METHODS
+          value: "GET,POST,PUT,DELETE,OPTIONS"
+        - name: CORS_ALLOWED_HEADERS
+          value: "*"
+        - name: CORS_ALLOWED_CREDENTIALS
+          value: "true"
         - name: SPRING_DATASOURCE_URL
           value: "jdbc:mysql://mysql-0.mysql.mysql.svc.cluster.local:3306/dining_services"
         - name: SPRING_DATASOURCE_USERNAME

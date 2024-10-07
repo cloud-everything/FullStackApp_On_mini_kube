@@ -40,7 +40,7 @@ spec:
         - ReadWriteOnce
       resources:
         requests:
-          storage: 5Gi  # Requested storage size
+          storage: 1Gi  # Requested storage size
       storageClassName: standard  # Use the same StorageClass
 
 

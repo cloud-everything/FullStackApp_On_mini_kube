@@ -9,4 +9,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP # Use ClusterIP if no external access is needed
+  type: LoadBalancer # Use ClusterIP if no external access is needed

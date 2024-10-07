@@ -5,9 +5,9 @@ metadata:
   labels:
     app: springboot-app
 spec:
-  type: ClusterIP  # You can change to LoadBalancer if exposing externally
+  type: LoadBalancer  # You can change to LoadBalancer if exposing externally
   ports:
-  - port: 80  # The port on which the service is exposed
-    targetPort: 8080  # Forward to the container port
+    - port: 8080   # Port the service will expose
+      targetPort: 8080   # Port on which your Spring Boot app is running
   selector:
     app: springboot-app
