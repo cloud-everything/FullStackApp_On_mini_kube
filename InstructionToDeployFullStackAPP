@@ -4,6 +4,7 @@ minikube start
 
 #============================= deploy mysql kubernetes cluster=======================
 kubectl create namespace mysql ############create a mysql namespace
+kubectl config set-context --current --namespace=mysql
 kubectl apply -f mysql-service.yaml ####################create a headless service
 kubectl apply -f mysql-statefulset.yaml ################create a statefulset for mysql
 kubectl get pods ###############check status of pods
@@ -32,10 +33,13 @@ kubectl get svc
 
 #=========================build the angular image for docker========================
 kubectl create namespace angular
+kubectl config set-context --current --namespace=angular
 docker build -t angular-dining-services . 
 minikube image load angular-dining-services
 kubectl apply -f angular-deployment.yaml
 kubectl apply -f angular-service.yaml 
 
 
-
+#========================check status of all cluster==========================
+kubectl get pods --all-namespaces -o wide
+kubectl get svc --all-namespaces -o wide
